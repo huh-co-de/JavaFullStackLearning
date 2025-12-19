@@ -5,8 +5,13 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- bean definitions here -->
-    <bean id="myBean" class="car.example.bean.MyBean">
-        <property name="message" value="Hello! there"/>
+    <bean id="userDataProvider" class="loose.coupling.injection.UserDatabase">
     </bean>
+
+    <bean id="userManager" class="loose.coupling.injection.UserManager">
+        <constructor-arg  ref="userDataProvider"/>
+    </bean>
+
+
 
 </beans>
